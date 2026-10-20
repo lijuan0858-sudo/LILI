@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的第一个页面 · Hello World</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:#f5f7fb;color:#1b2230;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+  .card{background:#fff;border:1px solid #e3e7ef;border-radius:16px;padding:32px 28px;
+    width:min(92vw,420px);box-shadow:0 8px 30px rgba(27,34,48,.06)}
+  h1{font-size:22px;margin:0 0 6px}
+  p.sub{font-size:13px;color:#8b95a8;margin:0 0 20px}
+  label{display:block;font-size:12px;color:#48536b;font-weight:600;margin-bottom:6px}
+  input{width:100%;padding:11px 13px;border:1px solid #e3e7ef;border-radius:10px;
+    font:inherit;font-size:15px;outline:none}
+  input:focus{border-color:#3355d1}
+  button{width:100%;margin-top:12px;padding:12px;border:none;border-radius:10px;
+    background:#3355d1;color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+  button:active{transform:translateY(1px)}
+  #out{margin-top:18px;min-height:26px;font-size:16px;font-weight:600;color:#2b7a54}
+  footer{margin-top:22px;padding-top:14px;border-top:1px solid #f0f2f6;
+    font-size:11.5px;color:#b3bbca}
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1>Hello World 👋</h1>
+    <p class="sub">这是我在 D1 部署上线的第一个页面</p>
+
+    <label for="name">你的名字</label>
+    <input id="name" type="text" placeholder="输入名字，按按钮试试">
+
+    <button id="btn" type="button">打个招呼</button>
+
+    <div id="out"></div>
+
+    <footer>Made on D1 · 我的学习工作台</footer>
+  </main>
+
+<script>
+  // 结构：HTML 管骨架、CSS 管外观、JS 管行为——三种语言各管一件事
+  var btn = document.getElementById('btn');   // 找到按钮
+  var nameInput = document.getElementById('name'); // 找到输入框
+  var out = document.getElementById('out');   // 找到输出区域
+
+  btn.addEventListener('click', function () {  // 点击时执行
+    var name = nameInput.value.trim();         // 读输入并去掉空格
+    if (!name) {                               // 空输入也要有提示，不能白屏
+      out.style.color = '#bf2d2d';
+      out.textContent = '先输入一个名字吧';
+      return;
+    }
+    out.style.color = '#2b7a54';
+    out.textContent = '你好，' + name + '！这是你的第一个网页。';
+  });
+</script>
+</body>
+</html>
